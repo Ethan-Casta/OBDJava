@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.ComboBox?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.ethan.obdjava.views.MainController" stylesheets="@main.css" >
+  <HBox alignment="CENTER" styleClass="connectBar" spacing="5.0">
+    <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+    </padding>
+    <Label text="Status : "/>
+    <Label text="Disconnected" fx:id="statusLabel"/>
+    <Region HBox.hgrow="ALWAYS" />
+    <Button text="⟳" fx:id="refreshComboBoxButton" onAction="#onRefreshComboBox"/>
+    <ComboBox fx:id="baudrateComboBox" />
+    <ComboBox fx:id="portComboBox" />
+    <Button text="Establish Connection" fx:id="connectButton" onAction="#onClickConnect"/>
+  </HBox>
+  <Region VBox.vgrow="ALWAYS" />
+  <VBox alignment="CENTER" spacing="10.0" fx:id="container" visible="false">
+    <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+
+    <VBox alignment="CENTER" spacing="5.0">
+      <Label fx:id="speedLabel"/>
+      <Label fx:id="rpmLabel"/>
+      <Label fx:id="airInTakeLabel"/>
+      <Label fx:id="engineTempLabel"/>
+    </VBox>
+
+    <HBox alignment="CENTER" spacing="5.0">
+      <Button text="Refresh Data" onAction="#onClickRefresh"/>
+      <Button text="Clear DTC" onAction="#onClickClearDTC"/>
+    </HBox>
+    <Button text="Calculate 0-100 km/h" fx:id="calculateButton" onAction="#onClickCalculate0To100"/>
+    <Label fx:id="messageLabel" styleClass="messageLabel" visible="false"/>
+  </VBox>
+  <Region VBox.vgrow="ALWAYS" />
+  <HBox styleClass="bottomBar" alignment="CENTER_RIGHT">
+    <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+    </padding>
+    <Label fx:id="versionLabel" />
+  </HBox>
+</VBox>
